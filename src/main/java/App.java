@@ -17,12 +17,22 @@ public class App {
         carA.speedUp(30);
         carB.speedUp(40);
 
-        Car car = new Car("GoodBye", "My Car");
+        Vehicle car = new Car("GoodBye", "My Car");
         car.speedUp(180);
         car.speedUp(201);
 
+        Vehicle bus = new Bus("BusBrand", "BusA");
+        bus.speedUp(50);
+        bus.speedUp(100);
+
         Driver driver = new Driver("Sam", carA);
         driver.speedUp(20);
+
+        Driver jacky = new Driver("Jacky", car);
+        jacky.speedUp(111);
+
+        Driver bady = new Driver("Baby", bus);
+        bady.speedUp(666);
     }
 }
 
@@ -64,6 +74,23 @@ class Car extends Vehicle {
     public void speedUp(int increaseSpeed) {
         if (increaseSpeed < 200) {
             super.speedUp(increaseSpeed);
+            System.out.println("__I am a Car__");
+        } else {
+            System.out.println("SpeedUp failed");
+        }
+    }
+}
+
+class Bus extends Vehicle {
+    public Bus(String brandName, String vehicleName) {
+        super(brandName, vehicleName);
+    }
+
+    @Override
+    public void speedUp(int increaseSpeed) {
+        if (increaseSpeed < 80) {
+            super.speedUp(increaseSpeed);
+            System.out.println("__I am a Bus__");
         } else {
             System.out.println("SpeedUp failed");
         }
