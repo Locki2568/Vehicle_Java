@@ -14,6 +14,10 @@ public class App {
 
         carA.speedUp(30);
         carB.speedUp(40);
+
+        Car car = new Car("GoodBye", "My Car");
+        car.speedUp(180);
+        car.speedUp(201);
     }
 }
 
@@ -33,7 +37,16 @@ class Vehicle{
 
 class Car extends Vehicle {
     public Car(String brandName, String vehicleName){
-        
+        super(brandName, vehicleName);
+    }
+
+    @Override
+    public void speedUp(int increaseSpeed){
+        if(increaseSpeed < 200){
+            super.speedUp(increaseSpeed);
+        }else{
+            System.out.println("SpeedUp failed");
+        }
     }
 }
 
